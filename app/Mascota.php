@@ -6,23 +6,33 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mascota extends Model
 {
-    protected $table='mascotas'
-    protected $primaryKey='id_mascota'
+    // Nombre de la tabla
+    protected $table='mascotas';
 
-    //define si la llave primaria es o no un numero autoincrementable
+    //clave primaria de la tabla
+    protected $primaryKey='id_mascota';
+
+    //Espesificamos las relaciones
+    public $with=['especie'];
+
+    //La clave primaria es numerica
     public $incrementing=true;
 
     // activar o desactivar etiquetas de tiempo
-
    public $timestamps=true;
 
-   public $fillable=[
-   	'id_mascota',
+   //Lista de campos para recibir valor
+   protected $fillable=[
    	'nombre',
+    'edad',
    	'genero',
    	'peso',
-   	'id_propietario',
    	'id_especie',
-   	'id_raza'
+   	'id_propietario'
    ];
+
+   public function especie()
+   {
+    return $this->belongsTo(Especie::class,'id_especie','id_especie');
+   }
 }

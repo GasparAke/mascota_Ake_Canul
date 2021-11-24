@@ -14,17 +14,9 @@ class MascotaController extends Controller
      */
     public function index()
     {
-        return $mascotas=Mascota::all();
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
         //
+        return $mascota=Mascota::all();
+
     }
 
     /**
@@ -35,7 +27,16 @@ class MascotaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $mascota= new Mascota();
+
+        //$mascota->id_mascota=$request->get('id_mascota');
+        $mascota->nombre=$request->get('nombre');
+        $mascota->edad=$request->get('edad');
+        $mascota->peso=$request->get('peso');
+        $mascota->genero=$request->get('genero');
+        $mascota->id_especie=$request->get('id_especie');
+
+        $mascota->save();
     }
 
     /**
@@ -50,17 +51,6 @@ class MascotaController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -69,7 +59,16 @@ class MascotaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $mascota=Mascota::find($id);
+
+        $mascota->nombre=$request->get('nombre');
+        $mascota->edad=$request->get('edad');
+        $mascota->peso=$request->get('peso');
+        $mascota->genero=$request->get('genero');
+        $mascota->id_especie=$request->get('id_especie');
+
+        $mascota->update();
+
     }
 
     /**
@@ -81,5 +80,11 @@ class MascotaController extends Controller
     public function destroy($id)
     {
         //
+        $mascota=Mascota::find($id);
+        $mascota->delete();
+    }
+
+    public function obtenerMascotas(){
+        return 'Holi';
     }
 }

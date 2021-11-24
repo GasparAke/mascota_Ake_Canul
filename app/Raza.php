@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Raza extends Model
 {
-    protected $table='razas'
-    protected $primaryKey='id_raza'
+    protected $table='razas';
+    protected $primaryKey='id_raza';
 
     //define si la llave primaria es o no un numero autoincrementable
     public $incrementing=true;

@@ -14,7 +14,9 @@ class EspecieController extends Controller
      */
     public function index()
     {
+        //
         return $especies=Especie::all();
+
     }
 
     /**
@@ -35,7 +37,12 @@ class EspecieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $especie=new Especie();
+
+        //$especie->id_especie=$request->get('id_especie');
+        $especie->especie=$request->get('especie');
+
+        $especie->save();
     }
 
     /**
@@ -69,7 +76,9 @@ class EspecieController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $especie->especie=$request->get('especie');
+
+        $especie->update();
     }
 
     /**
@@ -81,5 +90,7 @@ class EspecieController extends Controller
     public function destroy($id)
     {
         //
+        $especie=Especie::find($id);
+        $especie->delete();
     }
 }

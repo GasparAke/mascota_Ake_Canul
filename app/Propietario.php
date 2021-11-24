@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Prpietario extends Model
+class Propietario extends Model
 {
-    protected $table='propietarios'
-    protected $primaryKey='id_propietario'
+    protected $table='propietarios';
+    protected $primaryKey='id_propietario';
 
     //define si la llave primaria es o no un numero autoincrementable
     public $incrementing=true;
