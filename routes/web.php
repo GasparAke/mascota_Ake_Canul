@@ -45,3 +45,8 @@ Route::get('propietarios', function () {
     return view('propietarios');
 });
 
+Route::get('getRazas/{id_especie}',[
+	'as' => 'getRazas',
+	'uses' =>'EspecieController@getRazas',
+
+]);
