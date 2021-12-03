@@ -97,7 +97,7 @@ class EspecieController extends Controller
 
     public function getRazas($id_especie){
 
-        $razas=DB::select("SELECT * FROM razas WHERE id_especie=$id_especie")
+        $razas=DB::select("SELECT * FROM razas WHERE id_especie=$id_especie");
 
         return $razas;
     }

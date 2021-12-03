@@ -1,8 +1,11 @@
 
 function init(){
 
-var apiMascota = 'http://localhost/mascota_Ake_Canul/public/apiMascota';
-var apiEspecie = 'http://localhost/mascota_Ake_Canul/public/apiEspecie';
+//var apiMascota = 'http://localhost/mascota_Ake_Canul/public/apiMascota';
+//var apiEspecie = 'http://locahost/mascota_Ake_Canul/public/apiEspecie';
+
+var apiMascota= ruta + '/apiMascota';
+var apiEspecie= ruta + '/apiEspecie';
 
 new Vue({
     //Asignamos el token
@@ -11,7 +14,7 @@ new Vue({
             'X-CSRF-TOKEN': document.querySelector('#token').getAttribute('value')
         }
     },
-    el:'#mascota',
+    el:'#apiMascotas',
 
     data:{
         mensaje:'HOLA MUNDO CRUEL',

@@ -2,7 +2,7 @@ var apiMascota='http://localhost/mascota_Ake_Canul/public/apiMascota';
 
 var apiEspecie = 'http://localhost/mascota_Ake_Canul/public/apiEspecie';
 new Vue({
-	el:"#mascota",
+	el:"#apiMascotas",
 
 	data:{
 		prueba:'Es prueba',
@@ -68,7 +68,7 @@ new Vue({
 				this.peso='';
 				this.genero='';
 				this.id_especie='';
-				this.
+			
 
 			}).catch(function(j){
 				console.log(j);
@@ -80,10 +80,10 @@ new Vue({
 		},
 
 		eliminarMascota:function(id){
-			var confir= confir('Esta seguro de eliminar la mascota?');
+			var confir= confirm('Esta seguro de eliminar la mascota?');
 			if (confir) 
 			{
-				this.$http.delete(apiMascota + '/' + id).then(function(json){
+				this.$http.destroy(apiMascota + '/' + id).then(function(json){
 					this.obtenerMascotas();
 				}).catch(function(json){
 
@@ -103,20 +103,18 @@ new Vue({
 				this.peso=json.data.peso;
 			});
 
-			$('#modalMascota'),modal('show');
+			$('#modalMascota').modal('show');
 
 		},
 
 		actualizarMascota:function(){
+			alert('Estamos modificando una mascota');
 			var jsonMascota = {nombre:this.nombre,
-			                   edad:this.edad;
-			                   peso:this.peso;
-			                   genero:this.genero;
-			                   id_especie:this.id_especie
-			                   };
-
+			                   edad:this.edad,
+			                   peso:this.peso,
+			                   genero:this.genero,
+			                   id_especie:this.id_especie};
 			//console.log(jsonMascota);
-
 			this.$http.patch(apiMascota + '/' + this.id_mascota,jsonMascota).then(function(json){
 				this.obtenerMascotas();
 			});
@@ -126,6 +124,7 @@ new Vue({
 		obtenerEspecies:function(){
 			this.$http.get(apiEspecie).then(function(json){
 				this.especies=json.data;
+				console.log(json.data);
 
 
 			})
@@ -133,12 +132,13 @@ new Vue({
 
 		obtenerRazas(e){
 			     var id_especie=e.target.value;
-			     //console.log(id_especie);
+			     console.log(id_especie);
 
-			     this.$http.get(ruta + '/getRazas' +).then(function(j){
+			     this.$http.get('http://localhost/mascota_Ake_Canul/public/getRazas/' + id_especie).then(function(j){
 			     	this.razas=j.data;
+			     	console.log(j.data);
 			     });
-		}
+		},
 
 
 
@@ -155,10 +155,9 @@ new Vue({
 		},
 
 		filtroMascotas:function(){
-			return this.mascotas.filter((mascota)=>{
-				return mascota.nombre.tolowerCase()match(this.buscar.tolowerCase().trim()) ||
-				       mascota.especie.especie.tolowerCase()match(this.buscar.tolowerCase().trim())
-			});
+			// return this.mascotas.filter((mascota)=>{
+			// 	return mascota.nombre.tolowerCase()match(this.buscar.tolowerCase().trim()) 
+			// });
 		}
 	}
 	//fin de computed

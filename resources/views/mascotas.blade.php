@@ -58,7 +58,7 @@
                     </thead>
 
                     <tbody>
-                        <tr v-for="mascota in filtroMascotas">
+                        <tr v-for="mascota in mascotas">
                             <td hidden="">@{{mascota.id_mascota}}</td>
                             <td>@{{mascota.nombre}}</td>
                             <td>@{{mascota.edad}}</td>
@@ -141,9 +141,9 @@
 @endsection
 
 @push('scripts')
-<script src="{{asset('js/apis/mascotas.js')}}"></script>
+
 <script type="text/javascript" src="{{asset('js/vue-resource.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/apis/mascotas.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/apis/apis/ApiMascota.js')}}"></script>
 @endpush
 
 

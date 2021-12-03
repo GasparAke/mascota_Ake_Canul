@@ -29,7 +29,7 @@ class MascotaController extends Controller
     {
         $mascota= new Mascota();
 
-        //$mascota->id_mascota=$request->get('id_mascota');
+        $mascota->id_mascota=$request->get('id_mascota');
         $mascota->nombre=$request->get('nombre');
         $mascota->edad=$request->get('edad');
         $mascota->peso=$request->get('peso');
