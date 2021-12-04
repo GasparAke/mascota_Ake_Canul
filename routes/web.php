@@ -24,6 +24,8 @@ Route::apiResource('apiPropietario', 'PropietarioController');
 
 Route::apiResource('apiRaza', 'RazaController');
 
+Route::apiResource('apiProducto','ProductoController');
+
 Route::get('prueba', function(){
     //return base64_encode('HOLA');
     return DB::select("SELECT * FROM usuarios");
@@ -37,6 +39,11 @@ Route::post('validar','AccesoController@validar');
  
 Route::get('mascotas', function () {
     return view('mascotas');
+});
+
+Route::get('ventas', function () {
+    return view('ventas');
+
 });
 Route::get('especies', function () {
     return view('especies');
