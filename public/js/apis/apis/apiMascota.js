@@ -83,7 +83,7 @@ new Vue({
 			var confir= confirm('Esta seguro de eliminar la mascota?');
 			if (confir) 
 			{
-				this.$http.destroy(apiMascota + '/' + id).then(function(json){
+				this.$http.delete(apiMascota + '/' + id).then(function(json){
 					this.obtenerMascotas();
 				}).catch(function(json){
 

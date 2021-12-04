@@ -146,6 +146,7 @@
 <script type="text/javascript" src="{{asset('js/apis/apis/ApiMascota.js')}}"></script>
 @endpush
 
+<input type="hidden" name="route" value="{{url('/')}}">
 
 </body>
 </html>
